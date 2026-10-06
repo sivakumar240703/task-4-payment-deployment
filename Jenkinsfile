@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven3916'
+    }
+
     environment {
         ARTIFACT = 'target/payment-2.7.jar'
     }
