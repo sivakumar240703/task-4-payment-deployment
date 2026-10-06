@@ -47,7 +47,7 @@ pipeline {
                 }
             }
             steps {
-                bat 'bash deploy.sh "%ARTIFACT%"'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe" deploy.sh "%ARTIFACT%"'
             }
         }
     }
