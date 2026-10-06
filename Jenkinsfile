@@ -31,7 +31,9 @@ pipeline {
 
         stage('Approval') {
             when {
-                branch 'main'
+                expression {
+                    env.GIT_BRANCH == 'origin/main' || env.GIT_BRANCH == 'main'
+                }
             }
             steps {
                 input message: 'Approve production deployment?', ok: 'Deploy'
@@ -40,7 +42,9 @@ pipeline {
 
         stage('Deploy') {
             when {
-                branch 'main'
+                expression {
+                    env.GIT_BRANCH == 'origin/main' || env.GIT_BRANCH == 'main'
+                }
             }
             steps {
                 bat 'bash deploy.sh "%ARTIFACT%"'
